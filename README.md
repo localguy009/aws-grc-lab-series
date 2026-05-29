@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="Assets/LogoNWC.png" alt="NextWaveCyber" width="300">
+  <img src="Assets/LogoNWC.png" alt="NextWaveCyber" width="500">
 </p>
 
 <h1 align="center">AWS GRC Lab Series</h1>
