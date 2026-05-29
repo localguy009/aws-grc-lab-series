@@ -1,4 +1,3 @@
-# AWS GRC Lab Series
 
 <p align="center">
   <img src="Assets/LogoNWC.png" alt="NextWaveCyber" width="500">
