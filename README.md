@@ -1,7 +1,7 @@
 # AWS GRC Lab Series
 
 <p align="center">
-  <img src="Assets/LogoNWC.png" alt="NextWaveCyber" width="250">
+  <img src="Assets/LogoNWC.png" alt="NextWaveCyber" width="500">
 </p>
 
 This repository accompanies the NextWaveCyber YouTube channel and follows the build-out of a secure AWS environment for a fictional company, Shoreline Solutions.
