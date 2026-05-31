@@ -218,6 +218,53 @@ Wait 2–3 minutes after creation. If Session Manager shows Offline, stop and st
 
 ---
 
+## Step 8A — Create a NAT Gateway
+
+
+The web server is deployed in a private subnet and cannot directly access the internet. While Systems Manager provides remote access to the instance, it does not provide internet access for downloading software packages.
+
+To allow the web server to download Apache and future updates while remaining private, create a NAT Gateway and update the private route tables.
+
+### Create the NAT Gateway
+
+Go to **VPC → NAT Gateways → Create NAT Gateway**
+
+| Setting | Value |
+|---|---|
+| Name | shoreline-nat-gateway |
+| Subnet | shoreline solutions-subnet-public1-us-east-1a |
+| Connectivity Type | Public |
+| Elastic IP | Allocate new Elastic IP |
+
+Click **Create NAT Gateway**
+
+Wait for the NAT Gateway status to change to **Available**
+
+### Update the Private Route Tables
+
+Go to **VPC → Route Tables**
+
+Locate the route tables associated with both private subnets
+
+Edit the routes and add the following entry:
+
+| Destination | Target |
+|---|---|
+| 0.0.0.0/0 | shoreline-nat-gateway |
+
+Save the route changes
+
+The private EC2 instances can now initiate outbound internet connections for software updates and package installations while remaining inaccessible from the internet.
+
+
+
+
+
+
+
+
+
+
 ## Step 9 — Install Apache on the Web Server
 
 1. Go to **EC2 → Instances → shoreline-web-server-01**
