@@ -153,14 +153,6 @@ RDS MySQL 8.0 (private subnet — AZ1)
 
 The web and app servers are in private subnets with no direct internet route. A NAT Gateway in the public subnet gives them outbound internet access. User Data runs on first boot and needs this to pull packages.
 
-**Allocate an Elastic IP:**
-
-1. Go to **EC2 → Elastic IPs → Allocate Elastic IP address**
-2. Leave defaults → click **Allocate**
-3. Note the allocation ID
-
-**Create the NAT Gateway:**
-
 1. Go to **VPC → NAT Gateways → Create NAT Gateway**
 
 | Setting | Value |
@@ -168,7 +160,7 @@ The web and app servers are in private subnets with no direct internet route. A 
 | Name | `shoreline-nat-gw` |
 | Subnet | `shoreline solutions-subnet-public1-us-east-1a` |
 | Connectivity type | Public |
-| Elastic IP | Select the one you just allocated |
+| Elastic IP | Click **Allocate Elastic IP** — allocates one on the spot |
 
 2. Click **Create NAT Gateway**
 
