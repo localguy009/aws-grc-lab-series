@@ -206,7 +206,6 @@ Apache is installed automatically via User Data at launch — no need to connect
 |-----|-------|
 | `environment` | `production` |
 | `tier` | `web` |
-| `company` | `shoreline-systems` |
 
 **User Data** (under Advanced details → User data):
 
@@ -261,7 +260,6 @@ echo "<h1>shoreline solutions - Client Portal</h1>" > /var/www/html/index.html
 |-----|-------|
 | `environment` | `production` |
 | `tier` | `web` |
-| `company` | `shoreline-systems` |
 
 3. Click **Create load balancer**
 
@@ -301,7 +299,7 @@ Traffic path confirmed: Internet → ALB → Web EC2 → Apache
 |-----|-------|
 | `environment` | `production` |
 | `tier` | `app` |
-| `company` | `shoreline-systems` |
+
 
 2. Click **Launch instance**
 
@@ -352,7 +350,6 @@ Traffic path confirmed: Internet → ALB → Web EC2 → Apache
 |-----|-------|
 | `environment` | `production` |
 | `tier` | `db` |
-| `company` | `shoreline-systems` |
 
 2. Click **Create database**
 
