@@ -12,3 +12,17 @@ This repository accompanies the NextWaveCyber YouTube channel and follows the bu
 
 The goal of this series is to demonstrate how cloud infrastructure is built, secured, monitored, and aligned to security and compliance requirements
 
+---
+
+## Repository Structure
+
+```
+aws-grc-lab-series/
+│── README.md                              # You are here
+├── Labs/                                  # Step-by-step lab guides for each episode
+│   └── Lab01-infrastructure/             # Episode 1 — build the Shoreline Solutions AWS environment
+│       └── aws-infrastructure-setup.md   # Full setup guide with every step and setting
+└── Assets/                               # Images and branding
+    └── LogoNWC.png
+```
+
