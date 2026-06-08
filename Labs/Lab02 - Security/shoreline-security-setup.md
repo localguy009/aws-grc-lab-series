@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-Before starting this guide, complete the [Infrastructure Setup Guide](shoreline-infrastructure-setup.md). You should have the following running:
+Before starting this guide, complete the [Infrastructure Setup Guide](https://github.com/localguy009/aws-grc-lab-series/blob/main/Labs/Lab01-infrastructure/aws-infrastructure-setup.md). You should have the following running:
 
 - VPC with public and private subnets
 - Web server and app server EC2 instances
