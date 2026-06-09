@@ -64,6 +64,51 @@ This bucket receives CloudTrail logs, AWS Config snapshots, and GuardDuty findin
 | `environment` | `production` |
 | `company` | `shoreline-systems` |
 
+### Add the bucket policy
+
+AWS services like Config write to S3 as service principals — they don't use your IAM credentials. This policy grants CloudTrail and Config permission to deliver logs to this bucket. Without it, AWS Config will fail to create its configuration recorder.
+
+1. Open the bucket → **Permissions → Bucket Policy → Edit**
+2. Paste the policy below, replacing `YOUR_ACCOUNT_ID` with your 12-digit AWS account ID and `YOUR_SUFFIX` with the suffix you chose for the bucket name
+3. Click **Save changes**
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AWSConfigBucketPermissionsCheck",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "config.amazonaws.com"
+      },
+      "Action": "s3:GetBucketAcl",
+      "Resource": "arn:aws:s3:::shoreline-audit-logs-YOUR_SUFFIX",
+      "Condition": {
+        "StringEquals": {
+          "AWS:SourceAccount": "YOUR_ACCOUNT_ID"
+        }
+      }
+    },
+    {
+      "Sid": "AWSConfigBucketDelivery",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "config.amazonaws.com"
+      },
+      "Action": "s3:PutObject",
+      "Resource": "arn:aws:s3:::shoreline-audit-logs-YOUR_SUFFIX/AWSLogs/YOUR_ACCOUNT_ID/Config/*",
+      "Condition": {
+        "StringEquals": {
+          "s3:x-amz-acl": "bucket-owner-full-control",
+          "AWS:SourceAccount": "YOUR_ACCOUNT_ID"
+        }
+      }
+    }
+  ]
+}
+```
+
 ---
 
 ## Step 2 — Enable CloudTrail
@@ -104,6 +149,8 @@ Done. GuardDuty is now active and will surface findings in Security Hub automati
 
 AWS Config records the configuration state of your resources over time. Security Hub uses Config rules to evaluate compliance — without it, many NIST 800-53 checks will show no data.
 
+> **Before proceeding:** Confirm the bucket policy from Step 1 is saved. Config will fail if the policy is missing.
+
 1. Go to **AWS Config → Get started**
 
 | Setting | Value |
@@ -125,11 +172,11 @@ Done. Config will begin recording resource configurations immediately and delive
 
 Security Hub aggregates findings from GuardDuty and AWS Config into a single compliance dashboard. Enabling the NIST 800-53 standard maps your environment directly to control requirements.
 
-1. Go to **Security Hub**
-2. Click **Go to Security Hub → Enable Security Hub**
-3. Enable the **NIST SP 800-53 Rev 5** standard
+1. Go to **Security Hub → Enable Security Hub**
+2. In the left sidebar go to **CSPM → Security standards**
+3. Find **NIST Special Publication 800-53 Revision 5** and click **Enable**
 
-Done. Security Hub will begin populating findings within 30 minutes. AWS Config must be enabled first for compliance checks to evaluate correctly.
+Done. Security Hub will begin populating findings within 30 minutes. AWS Config must be enabled and recording first for compliance checks to evaluate correctly.
 
 ---
 
