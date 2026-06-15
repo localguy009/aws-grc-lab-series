@@ -21,7 +21,7 @@ aws-grc-lab-series/
 │── README.md                              # You are here
 ├── Labs/                                  # Step-by-step lab guides for each episode
 │   ├── Lab01-infrastructure/             # Episode 1 — build the Shoreline Solutions AWS environment
-│   │   └── aws-infrastructure-setup.md   # Full setup guide with every step and setting
+│   │   └── shoreline-infrastructure-setup.md   # Full setup guide with every step and setting
 │   └── Lab02 - Security/                 # Episode 2 — enable the security and compliance layer
 │       └── shoreline-security-setup.md   # CloudTrail, GuardDuty, Config, and Security Hub setup
 └── Assets/                               # Images and branding
