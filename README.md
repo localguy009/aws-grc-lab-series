@@ -35,7 +35,7 @@ aws-grc-lab-series/
 ### Lab 01 — Infrastructure Setup
 Build the Shoreline Solutions AWS environment from scratch: VPC, subnets, EC2 instances (web and app servers), Application Load Balancer, and RDS MySQL database.
 
-**Guide:** [aws-infrastructure-setup.md](Labs/Lab01-infrastructure/aws-infrastructure-setup.md)
+**Guide:** [shoreline-infrastructure-setup.md](Labs/Lab01-infrastructure/shoreline-infrastructure-setup.md)
 
 ---
 
