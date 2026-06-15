@@ -192,4 +192,3 @@ All security services are running. Here is what you have:
 | AWS Config | Resource configuration tracking | Enabled |
 | Security Hub (NIST 800-53 Rev 5) | Compliance dashboard | Enabled |
 
-**Next step:** Add VPC Flow Logs and the Compliance Hub Lambda to start building the automation layer on top of this environment.
