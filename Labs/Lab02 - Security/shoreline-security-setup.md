@@ -166,15 +166,38 @@ AWS Config records the configuration state of your resources over time. Security
 
 Done. Config will begin recording resource configurations immediately and delivering snapshots to your audit logs bucket.
 
+### Enable NIST 800-53 Conformance Pack
+
+3. In the left sidebar, go to **Conformance packs**
+4. Click **Deploy conformance pack**
+5. Under **Template**, select **Use existing template from AWS sample templates**
+6. From the dropdown, select **Operational Best Practices for NIST 800-53 rev 4**
+7. Click **Next**
+
+| Setting | Value |
+|---------|-------|
+| Conformance pack name | `shoreline-nist-800-53-config-rules` |
+| Delivery S3 bucket | `shoreline-audit-logs` |
+
+8. Click **Next → Deploy conformance pack**
+
+Done. AWS Config will evaluate your resources against the NIST 800-53 Rev 4 rules. Results will appear in the Conformance packs dashboard within a few minutes.
+
 ---
 
 ## Step 5 — Enable Security Hub
 
 Security Hub aggregates findings from GuardDuty and AWS Config into a single compliance dashboard. Enabling the NIST 800-53 standard maps your environment directly to control requirements.
 
+> **Before proceeding:** Confirm your AWS console is set to **us-east-1** (top-right region selector). This lab only covers us-east-1 — do not enable Security Hub in other regions.
+
 1. Go to **Security Hub → Enable Security Hub**
-2. In the left sidebar go to **CSPM → Security standards**
-3. Find **NIST Special Publication 800-53 Revision 5** and click **Enable**
+2. Leave the capabilities set to **Enable all capabilities** (default)
+3. Under **Regions**, select **Enable specific Regions** — do NOT use "Enable in all Regions" (the recommended default)
+4. Confirm that only **us-east-1** is selected
+5. Click **Enable Security Hub**
+6. In the left sidebar go to **CSPM → Security standards**
+7. Find **NIST Special Publication 800-53 Revision 5** and click **Enable**
 
 Done. Security Hub will begin populating findings within 30 minutes. AWS Config must be enabled and recording first for compliance checks to evaluate correctly.
 
